@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en" class="h-100">
 
 <head>
     <title>Puzzled Escape Room</title>
@@ -20,6 +20,29 @@
 <body>
 
     <!-- Navigation -->
+
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://res.cloudinary.com/dif7bavi7/image/upload/v1690753428/puzzled_logo_v12znz.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                Puzzled Escape Room
+            </a>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Active</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+    </nav>
 
     <main>
         {% block content %}
