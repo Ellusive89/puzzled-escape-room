@@ -1,0 +1,42 @@
+<title>Escape Room Booking</title>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<h1 class="text-center  mt-3">Escape Room Booking</h1>
+
+<div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5 ">
+    <form method="post" action="{% url 'booking' %}" class="me-2 ms-2" required>
+        
+    {% csrf_token %}
+        <div>
+            <h3 class="">Select Room:</h3>
+            <select class="form-select fs-3" name="room">
+                <option value="Lost in Time">Lost in Time</option>
+                <option value="Enchanted Forest">Enchanted Forest</option>
+                <option value="Space Odyssey">Space Odyssey</option>
+                <option value="The Haunted Manor">The Haunted Manor</option>
+                <option value="Art Heist">Art Heist</option>
+                <option value="Survival Island">Survival Island</option>
+                <option value="Carnival of Curiosities">Carnival of Curiosities</option>
+                <option value="Egyptian Tomb">Egyptian Tomb</option>
+            </select>
+        </div>
+        <div class="mt-3">
+            <h3 class="">Select Day:</h3>
+            <select class="form-select fs-3" name="day">
+                {% for validateWeekday in validateWeekdays %}
+                <option value="{{validateWeekday}}">{{validateWeekday}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <br/>
+        <button type="submit" class="btn btn-primary text-white">Continue</button>
+</div>
+</form>
+</div>
+
+
+{% endblock %}

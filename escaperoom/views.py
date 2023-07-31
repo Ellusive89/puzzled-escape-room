@@ -23,7 +23,6 @@ def booking(request):
             messages.success(request, "Please Select A Room!")
             return redirect('booking')
 
-        # Store day and room in django session:
         request.session['day'] = day
         request.session['room'] = room
 
@@ -37,7 +36,6 @@ def booking(request):
 
 def bookingSubmit(request):
     user = request.user
-    # Adjust times based on the room schedule
     times = ["9 AM", "10:30 AM", "12:00 PM", "1:30 PM",
              "3:00 PM", "4:30 PM", "6:00 PM", "7:30 PM", "9:00 PM"]
     today = datetime.now()
@@ -46,11 +44,9 @@ def bookingSubmit(request):
     strdeltatime = deltatime.strftime('%Y-%m-%d')
     maxDate = strdeltatime
 
-    # Get stored data from django session:
     day = request.session.get('day')
     room = request.session.get('room')
 
-    # Check availability
     hour = checkTime(times, day)
     if request.method == 'POST':
         time = request.POST.get("time")
@@ -67,15 +63,15 @@ def bookingSubmit(request):
                             time=time,
                         )
                         messages.success(request, "Booking Saved!")
-                        return redirect('index')
+                        return redirect('escaperoom.html')
                     else:
                         messages.success(
-                            request, "The Selected Time Has Been Reserved Before!")
+                            request, "The Selected Time Has Already Been Reserved!")
                 else:
                     messages.success(request, "The Selected Day Is Full!")
             else:
                 messages.success(
-                    request, "The Selected Date Isn't In The Correct Time Period!")
+                    request, "The Selected Date Isn't In The Correct Time Slot!")
         else:
             messages.success(request, "Please Select A Room!")
 

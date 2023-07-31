@@ -32,6 +32,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["8000-ellusive89-puzzled-escap-ml53o3bujs.us2.codeanyapp.com"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://8000-ellusive89-puzzled-escap-ml53o3bujs.us2.codeanyapp.com"]
+
 
 # Application definition
 
