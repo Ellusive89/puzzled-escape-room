@@ -1,0 +1,26 @@
+body{
+    background-color: lightblue;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+h1{
+    font-family: Ubuntu, Arial, sans-serif;
+    font-style: italic;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    gap: 30px;
+}
+
+.social-links a {
+    color: #f28202;
+}

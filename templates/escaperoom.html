@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Welcome to our Escape Room!</h1>
-    <p>Each of these immersive escape room themes offers a unique and thrilling experience,
-         designed to challenge your team's problem-solving abilities, cooperation, 
-         and knowledge of history, mythology, or futuristic technologies. 
-         Whichever adventure you choose, get ready to be transported to a world of excitement, 
-         mystery, and discovery!</p>
-    <ul>
-        {% for room in rooms %}
-        <li>
-           
-        </li>
-        {% endfor %}
-    </ul>
+    <div class="d-flex justify-content-center align-items-center" style="height: 70vh; max-width: 800px; margin: auto; text-align: center;">
+        <div>
+            <h1>Welcome to our Escape Room!</h1>
+            <figure class="text-center">
+                <blockquote class="blockquote">
+                <p>"Each of these immersive escape room themes offers a unique and thrilling experience,
+                designed to challenge your team's problem-solving abilities, cooperation, 
+                and knowledge of history, mythology, or futuristic technologies. 
+                Whichever adventure you choose, get ready to be transported to a world of excitement, 
+                mystery, and discovery!"</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                Puzzled <cite title="Source Title">Escape Room Team</cite>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+    
 {% endblock %}
