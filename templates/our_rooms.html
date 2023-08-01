@@ -1,31 +1,29 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 <div class="container">
   <div class="row">
     {% for room in rooms %}
-    <div class="col-md-4 col-lg-3 mb-4">
-      <div class="card">
+    <div class="col-md-4 col-lg-3 mb-2 mt-2">
+      <div class="card h-100 d-flex flex-column">
         <img
           src="{{ room.image.url }}"
           class="card-img-top"
           alt="{{ room.title }}"
         />
-        <div class="card-body">
+        <div class="card-body flex-grow-1">
           <h5 class="card-title">{{ room.title }}</h5>
           <p class="card-text">{{ room.short_description }}</p>
-        <div class="difficulty">
-            Difficulty:
-            {% for i in "12345" %}
-            {% if i|add:0 <= room.difficulty %} <i class="fas fa-star"></i>
-                {% else %}
-                <i class="far fa-star"></i>
-                {% endif %}
-                {% endfor %}
+          <div class="difficulty">
+            Difficulty: {% for i in "12345" %} {% if i|add:0 <= room.difficulty %} <i class="fas fa-star" style="color: #f28202"></i>
+            {% else %}
+            <i class="far fa-star" style="color: #f28202"></i>
+            {% endif %} 
+            {% endfor %}
+          </div>
         </div>
-          </div>
-          <button class="btn btn-primary read-more">Read more...</button>
-          <div class="long-description" style="display: none">
-            <p>{{ room.long_description }}</p>
-          </div>
+        <button class="btn btn-primary read-more">Read more...</button>
+        <div class="long-description card-body" style="display: none">
+          <p>{{ room.long_description }}</p>
         </div>
       </div>
     </div>
