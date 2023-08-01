@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <div class="row">
+    {% for room in rooms %}
+    <div class="col-md-4 col-lg-3 mb-4">
+      <div class="card">
+        <img
+          src="{{ room.image.url }}"
+          class="card-img-top"
+          alt="{{ room.title }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ room.title }}</h5>
+          <p class="card-text">{{ room.short_description }}</p>
+        <div class="difficulty">
+            Difficulty:
+            {% for i in "12345" %}
+            {% if i|add:0 <= room.difficulty %} <i class="fas fa-star"></i>
+                {% else %}
+                <i class="far fa-star"></i>
+                {% endif %}
+                {% endfor %}
+        </div>
+          </div>
+          <button class="btn btn-primary read-more">Read more...</button>
+          <div class="long-description" style="display: none">
+            <p>{{ room.long_description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $(".read-more").click(function (e) {
+      e.preventDefault();
+      $(this).siblings(".long-description").slideToggle();
+    });
+  });
+</script>
+{% endblock %}

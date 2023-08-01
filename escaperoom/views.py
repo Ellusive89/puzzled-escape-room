@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from datetime import datetime, timedelta
 from .models import *
 from django.contrib import messages
+from .models import Room_Description
 
 
 def escaperoom_page_view(request):
@@ -114,3 +115,8 @@ def checkTime(times, day):
         if Reservation.objects.filter(day=day, time=k).count() < 1:
             x.append(k)
     return x
+
+
+def our_rooms(request):
+    rooms = Room_Description.objects.all()
+    return render(request, 'our_rooms.html', {'rooms': rooms})

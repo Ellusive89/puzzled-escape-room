@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 ROOM_CHOICES = (
     ("Lost in Time", "Lost in Time"),
@@ -41,3 +42,14 @@ class Reservation(models.Model):
 
     def __str__(self):
         return f"{self.user.username} | room: {self.room} | day: {self.day} | time: {self.time} | players: {self.players}"
+
+
+class Room_Description(models.Model):
+    title = models.CharField(max_length=500)
+    short_description = models.CharField(max_length=1000)
+    long_description = models.TextField()
+    image = CloudinaryField('image')
+    difficulty = models.IntegerField(default=1)
+
+    def __str__(self):
+        return self.title
