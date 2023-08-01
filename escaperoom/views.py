@@ -62,7 +62,7 @@ def bookingSubmit(request):
                             time=time,
                             players=players
                         )
-                        messages.success(request, "Booking Saved!")
+                        messages.success(request, "Your Booking Is Now Saved!")
                         return redirect('escaperoom.html')
                     else:
                         messages.success(
@@ -119,39 +119,11 @@ def our_rooms(request):
     context = {'rooms': rooms, 'active_tab': 'our_rooms'}
     return render(request, 'our_rooms.html', context)
 
-def userPanel(request):
+def user_panel(request):
     user = request.user
     reservations = Reservation.objects.filter(user=user).order_by('day', 'time')
-    return render(request, 'userPanel.html', {
+    return render(request, 'user_panel.html', {
         'user': user,
         'reservations': reservations,
     })
 
-def userUpdate(request, id):
-    reservation = Reservation.objects.get(pk=id)
-    userdatepicked = reservation.day
-    
-    today = datetime.today()
-    minDate = today.strftime('%Y-%m-%d')
-
-    delta24 = (userdatepicked).strftime('%Y-%m-%d') >= (today + timedelta(days=1)).strftime('%Y-%m-%d')
-    
-    weekdays = validWeekday(31)
-
-    validateWeekdays = isWeekdayValid(weekdays)
-    
-    if request.method == 'POST':
-        room = request.POST.get('room')
-        day = request.POST.get('day')
-
-        request.session['day'] = day
-        request.session['room'] = room
-
-        return redirect('userUpdateSubmit', id=id)
-
-    return render(request, 'userUpdate.html', {
-            'weekdays':weekdays,
-            'validateWeekdays':validateWeekdays,
-            'delta24': delta24,
-            'id': id,
-        })
