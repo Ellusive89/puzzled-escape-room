@@ -127,3 +127,88 @@ def user_panel(request):
         'reservations': reservations,
     })
 
+def user_update(request, id):
+    reservation = Reservation.objects.get(pk=id)
+    userdatepicked = reservation.day
+    
+    today = datetime.today()
+    minDate = today.strftime('%Y-%m-%d')
+
+    delta24 = (userdatepicked).strftime('%Y-%m-%d') >= (today + timedelta(days=1)).strftime('%Y-%m-%d')
+    
+    weekdays = validWeekday(31)
+
+    validateWeekdays = isWeekdayValid(weekdays)
+    
+    if request.method == 'POST':
+        room = request.POST.get('room')
+        day = request.POST.get('day')
+
+        request.session['day'] = day
+        request.session['room'] = room
+
+        return redirect('user_updateSubmit', id=id)
+
+    return render(request, 'user_update.html', {
+            'weekdays':weekdays,
+            'validateWeekdays':validateWeekdays,
+            'delta24': delta24,
+            'id': id,
+        })
+
+def user_updateSubmit(request, id):
+    user = request.user
+    times = ["9 AM", "10:30 AM", "12:00 PM", "1:30 PM", "3:00 PM", 
+             "4:30 PM", "6:00 PM", "7:30 PM", "9:00 PM"]
+    today = datetime.now()
+    minDate = today.strftime('%Y-%m-%d')
+    deltatime = today + timedelta(days=21)
+    strdeltatime = deltatime.strftime('%Y-%m-%d')
+    maxDate = strdeltatime
+
+    day = request.session.get('day')
+    room = request.session.get('room')
+    
+    hour = checkTime(times, day)
+    reservation = Reservation.objects.get(pk=id)
+    userSelectedTime = reservation.time
+    if request.method == 'POST':
+        time = request.POST.get("time")
+        date = dayToWeekday(day)
+
+        if room != None:
+            if day <= maxDate and day >= minDate:
+                if Reservation.objects.filter(day=day, room=room).count() < 8:
+                    if Reservation.objects.filter(day=day, time=time, room=room).count() < 1 or userSelectedTime == time:
+                        ReservationForm = Reservation.objects.filter(pk=id).update(
+                            user = user,
+                            room = room,
+                            day = day,
+                            time = time,
+                        ) 
+                        messages.success(request, "Your Booking Has Been Edited!")
+                        return redirect('escaperoom.html')
+                    else:
+                        messages.success(request, "The Selected Time Has Already Been Reserved!")
+                else:
+                    messages.success(request, "The Selected Day Is Full!")
+            else:
+                messages.success(request, "The Selected Date Isn't In The Correct Time Slot!")
+        else:
+            messages.success(request, "Please Select A Room!")
+        return redirect('user_panel')
+
+    return render(request, 'user_updateSubmit.html', {
+        'times':hour,
+        'id': id,
+    })
+
+def checkEditTime(times, day, id):
+    x = []
+    reservation = Reservation.objects.get(pk=id)
+    time = reservation.time
+    room = reservation.room
+    for k in times:
+        if Reservation.objects.filter(day=day, time=k, room=room).count() < 1 or time == k:
+            x.append(k)
+    return x

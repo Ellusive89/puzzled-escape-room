@@ -8,4 +8,6 @@ urlpatterns = [
     path('booking-submit', views.bookingSubmit, name='bookingSubmit'),
     path('our-rooms', views.our_rooms, name='our_rooms'),
     path('user-panel', views.userPanel, name='user_panel'),
+    path('user-update/<int:id>', views.userUpdate, name='user_update'),
+    path('user-update-submit/<int:id>', views.userUpdateSubmit, name='user_updateSubmit'),
 ]
