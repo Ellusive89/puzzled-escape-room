@@ -50,6 +50,7 @@ def bookingSubmit(request):
     hour = checkTime(times, day)
     if request.method == 'POST':
         time = request.POST.get("time")
+        players = int(request.POST.get("players"))
         date = dayToWeekday(day)
 
         if room != None:
@@ -61,6 +62,7 @@ def bookingSubmit(request):
                             room=room,
                             day=day,
                             time=time,
+                            players=players
                         )
                         messages.success(request, "Booking Saved!")
                         return redirect('escaperoom.html')
@@ -77,6 +79,7 @@ def bookingSubmit(request):
 
     return render(request, 'bookingSubmit.html', {
         'times': hour,
+        'player_number_choices': PLAYER_NUMBER_CHOICES
     })
 
 
