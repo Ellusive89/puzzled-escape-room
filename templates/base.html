@@ -44,6 +44,9 @@
                 <a class="nav-link {% if active_tab == 'booking' %}active{% endif %}" href="{% url 'booking' %}">Booking</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {% if active_tab == 'user-panel' %}active{% endif %}" href="{% url 'user_panel' %}">User Panel</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
             </li>
             {% else %}
@@ -60,6 +63,15 @@
             {% endif %}
         </ul>
     </nav>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success  alert-dismissible fade show text-center " role="alert">
+        <h6 class="display-5">{{ message }}</h6>
+        <button type="button" class="btn-close fs-1 position-absolute top-50 start-0 translate-middle-y"
+            data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
 
     <main>
         {% block content %}
