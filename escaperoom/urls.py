@@ -7,8 +7,8 @@ urlpatterns = [
     path('booking', views.booking, name='booking'),
     path('booking-submit', views.bookingSubmit, name='bookingSubmit'),
     path('our-rooms', views.our_rooms, name='our_rooms'),
-    path('user-panel', views.userPanel, name='user_panel'),
-    path('user-update/<int:id>', views.userUpdate, name='user_update'),
-    path('user-update-submit/<int:id>', views.userUpdateSubmit, name='user_updateSubmit'),
+    path('user-panel', views.user_panel, name='user_panel'),
+    path('user-update/<int:id>', views.user_update, name='user_update'),
+    path('user-update-submit/<int:id>', views.user_updateSubmit, name='user_updateSubmit'),
     path('user-delete/<int:id>', views.user_delete, name='user_delete'),
 ]
