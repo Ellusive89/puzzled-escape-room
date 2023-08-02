@@ -37,14 +37,27 @@
                 <a class="nav-link {% if active_tab == 'our_rooms' %}active{% endif %}" href="{% url 'our_rooms' %}">Our Rooms</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {% if active_tab == 'booking' %}active{% endif %}" href="{% url 'booking' %}">Booking</a>
-            <li class="nav-item">
                 <a class="nav-link {% if active_tab == 'contact' %}active{% endif %}" href="#">Contact</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link {% if active_tab == 'booking' %}active{% endif %}" href="{% url 'booking' %}">Booking</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
             </li>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" aria-disabled="true">Admin</a>
             </li>
+            {% endif %}
         </ul>
     </nav>
 
