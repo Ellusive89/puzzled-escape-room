@@ -231,17 +231,19 @@ def checkEditTime(times, day, id):
 def user_delete(request, id):
     reservation = get_object_or_404(Reservation, pk=id)
     user_date_picked = reservation.day
-    today = datetime.today()
+    today = datetime.today().date()
     delta_48 = today + timedelta(days=2)
 
     if user_date_picked >= delta_48:
         if request.method == 'POST':
-            reservation.delete()
-            messages.success(
-                request, "Your Booking has been canceled successfully!")
-            return redirect('user_panel')
+            if 'confirm' in request.POST:
+                reservation.delete()
+                messages.success(request, "Your Booking has been canceled successfully!")
+                return redirect('user_panel')
+            else:
+                return redirect('user_panel')
+
         return render(request, 'delete_reservation.html', {'reservation': reservation})
     else:
-        messages.error(
-            request, "Sorry, you can only cancel a reservation more than 48 hours before your original booking.")
+        messages.error(request, "Sorry, you can only cancel a reservation more than 48 hours before your original booking.")
         return redirect('user_panel')

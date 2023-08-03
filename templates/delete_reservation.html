@@ -1,0 +1,24 @@
+<title>Delete Reservation</title>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h2 class="text-center mt-5">Delete Reservation</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-7 mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" action="{% url 'user_delete' reservation.id %}">
+                        {% csrf_token %}
+                        <h3 class="text-center text-danger">Are you sure you want to delete this reservation?</h3>
+                        <button type="submit" name="confirm" value="yes" class="btn btn-danger btn-block mt-4">Yes, delete it</button>
+                        <a href="{% url 'user_panel' %}" class="btn btn-primary btn-block mt-4">No, return to panel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
