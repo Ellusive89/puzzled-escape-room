@@ -71,7 +71,7 @@ def bookingSubmit(request):
                     messages.success(request, "The Selected Day Is Full!")
             else:
                 messages.success(
-                    request, "The Selected Date Isn't In The Correct Time Slot!")
+                    request, "The Selected Date Does Not Match The Expected Time Frame!")
         else:
             messages.success(request, "Please Select A Room!")
 
@@ -136,6 +136,7 @@ def user_update(request, id):
 
     today = datetime.today()
     minDate = today.strftime('%Y-%m-%d')
+
 
     delta24 = (userdatepicked).strftime(
         '%Y-%m-%d') >= (today + timedelta(days=1)).strftime('%Y-%m-%d')
@@ -204,7 +205,7 @@ def user_updateSubmit(request, id):
                     messages.success(request, "The Selected Day Is Full!")
             else:
                 messages.success(
-                    request, "The Selected Date Isn't In The Correct Time Slot!")
+                    request, "The Selected Date Does Not Match The Expected Time Frame!")
         else:
             messages.success(request, "Please Select A Room!")
         return redirect('user_panel')
@@ -238,12 +239,12 @@ def user_delete(request, id):
         if request.method == 'POST':
             if 'confirm' in request.POST:
                 reservation.delete()
-                messages.success(request, "Your Booking has been canceled successfully!")
+                messages.success(request, "Your Reservation Has Been Canceled Successfully!")
                 return redirect('user_panel')
             else:
                 return redirect('user_panel')
 
         return render(request, 'delete_reservation.html', {'reservation': reservation})
     else:
-        messages.error(request, "Sorry, you can only cancel a reservation more than 48 hours before your original booking.")
+        messages.error(request, "Sorry, You Can Only Cancel A Reservation More Than 48 Hours Before Your Original Booking.")
         return redirect('user_panel')

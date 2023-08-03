@@ -9,9 +9,14 @@ main {
     flex: 1;
 }
 
-h1 {
+h1, h2, h3, h4, h5 {
     font-family: Ubuntu, Arial, sans-serif;
     font-style: italic;
+    font-weight: 800;
+}
+
+p { 
+    font-family: Edu SA Beginner, Arial, sans-serif;
 }
 
 .social-links {
