@@ -1,0 +1,41 @@
+<title>Edit Reservation</title>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1 class="text-center mt-3">Edit Reservation</h1>
+
+<div class="shadow p-4 mb-5 bg-body bg-body rounded text-black text-center m-5">
+    {% now "Y-m-d" as current_date %}
+    {% if reservation.day|date:"Y-m-d"|add:"-1" >= current_date %}
+    <form method="post" action="{% url 'user_updateSubmit' id %}" class="me-2 ms-2" required>
+        {% csrf_token %}
+
+        <h3 class="">Time:</h3>
+        <div>
+            <select class="form-select fs-3" name="time">
+                {% for time in times %}
+                <option value="{{time}}">{{time}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <h3 class="">Number of Players:</h3>
+        <div>
+            <select class="form-select fs-3" name="players">
+                {% for player_choice in player_number_choices %}
+                <option value="{{ player_choice.0 }}">{{ player_choice.1 }}</option>
+                {% endfor %}
+            </select>          
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+        </div>
+{% else %}
+<h1 class="text-danger">Editing Reservation Is Only Available 24hrs Before Start Of Your
+Game!</h1>
+<a href="{% url 'user_panel' %}" class="btn btn-primary mt-5">Return To User Panel</a>
+
+{% endif %}
+{% endblock %}
+                            
+                            

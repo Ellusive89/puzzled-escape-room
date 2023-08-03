@@ -167,7 +167,7 @@ def user_updateSubmit(request, id):
              "4:30 PM", "6:00 PM", "7:30 PM", "9:00 PM"]
     today = datetime.now()
     minDate = today.strftime('%Y-%m-%d')
-    deltatime = today + timedelta(days=21)
+    deltatime = today + timedelta(days=31)
     strdeltatime = deltatime.strftime('%Y-%m-%d')
     maxDate = strdeltatime
 
@@ -179,21 +179,24 @@ def user_updateSubmit(request, id):
     userSelectedTime = reservation.time
     if request.method == 'POST':
         time = request.POST.get("time")
+        players = int(request.POST.get("players"))
         date = dayToWeekday(day)
 
         if room != None:
             if day <= maxDate and day >= minDate:
-                if Reservation.objects.filter(day=day, room=room).count() < 8:
-                    if Reservation.objects.filter(day=day, time=time, room=room).count() < 1 or userSelectedTime == time:
-                        ReservationForm = Reservation.objects.filter(pk=id).update(
-                            user=user,
-                            room=room,
-                            day=day,
-                            time=time,
-                        )
+                if date in ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']:
+                    if Reservation.objects.filter(day=day, room=room).count() < 8:
+                        if Reservation.objects.filter(day=day, time=time, room=room).count() < 1 or userSelectedTime == time:
+                            ReservationForm = Reservation.objects.filter(pk=id).update(
+                                user=user,
+                                room=room,
+                                day=day,
+                                time=time,
+                                players=players
+                            )
                         messages.success(
                             request, "Your Booking Has Been Edited!")
-                        return redirect('escaperoom.html')
+                        return redirect('escaperoom')
                     else:
                         messages.success(
                             request, "The Selected Time Has Already Been Reserved!")
@@ -208,7 +211,9 @@ def user_updateSubmit(request, id):
 
     return render(request, 'user_updateSubmit.html', {
         'times': hour,
+        'player_number_choices': PLAYER_NUMBER_CHOICES,
         'id': id,
+        'reservation': reservation,
     })
 
 
