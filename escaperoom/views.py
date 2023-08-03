@@ -9,6 +9,10 @@ def escaperoom_page_view(request):
     return render(request, 'escaperoom.html', {'active_tab': 'puzzled'})
 
 
+def contact(request):
+    return render(request, 'contact.html')
+
+
 def booking(request):
     weekdays = validWeekday(31)
     validateWeekdays = isWeekdayValid(weekdays)
@@ -137,7 +141,6 @@ def user_update(request, id):
     today = datetime.today()
     minDate = today.strftime('%Y-%m-%d')
 
-
     delta24 = (userdatepicked).strftime(
         '%Y-%m-%d') >= (today + timedelta(days=1)).strftime('%Y-%m-%d')
 
@@ -239,12 +242,14 @@ def user_delete(request, id):
         if request.method == 'POST':
             if 'confirm' in request.POST:
                 reservation.delete()
-                messages.success(request, "Your Reservation Has Been Canceled Successfully!")
+                messages.success(
+                    request, "Your Reservation Has Been Canceled Successfully!")
                 return redirect('user_panel')
             else:
                 return redirect('user_panel')
 
         return render(request, 'delete_reservation.html', {'reservation': reservation})
     else:
-        messages.error(request, "Sorry, You Can Only Cancel A Reservation More Than 48 Hours Before Your Original Booking.")
+        messages.error(
+            request, "Sorry, You Can Only Cancel A Reservation More Than 48 Hours Before Your Original Booking.")
         return redirect('user_panel')

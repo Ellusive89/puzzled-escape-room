@@ -12,7 +12,6 @@ main {
 h1, h2, h3, h4, h5 {
     font-family: Ubuntu, Arial, sans-serif;
     font-style: italic;
-    font-weight: 800;
 }
 
 p { 
@@ -30,3 +29,6 @@ p {
     color: #f28202;
 }
 
+.nav-link {
+    color: black;
+}
