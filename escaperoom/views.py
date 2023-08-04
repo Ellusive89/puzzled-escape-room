@@ -10,7 +10,7 @@ def escaperoom_page_view(request):
 
 
 def contact(request):
-    return render(request, 'contact.html')
+    return render(request, 'contact.html', {'active_tab': 'contact'})
 
 
 def booking(request):
@@ -42,7 +42,7 @@ def bookingSubmit(request):
              "3:00 PM", "4:30 PM", "6:00 PM", "7:30 PM", "9:00 PM"]
     today = datetime.now()
     minDate = today.strftime('%Y-%m-%d')
-    deltatime = today + timedelta(days=21)
+    deltatime = today + timedelta(days=31)
     strdeltatime = deltatime.strftime('%Y-%m-%d')
     maxDate = strdeltatime
 

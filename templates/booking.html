@@ -1,12 +1,10 @@
-<title>Escape Room Booking</title>
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
 
-
 <h1 class="text-center  mt-3">Escape Room Booking</h1>
 
-<div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5 mx-auto w-50">
+<div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5 mx-auto" style="width: 90%">
     <div class="text-center">
     <form method="post" action="{% url 'booking' %}" class="me-2 ms-2" required>
         
@@ -39,6 +37,5 @@
 </form>
 </div>
 </div>
-
 
 {% endblock %}
