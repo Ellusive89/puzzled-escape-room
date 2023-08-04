@@ -37,7 +37,8 @@
 
 - [Google Fonts](https://fonts.google.com/) was used for Ubuntu and Edu SA Beginner
 - [Font Awesome](<https://fontawesome.com/>) was used for icons
-- [Codeanywhere](<https://codeanywhere.com/>) was utilized for version control, enabling commits to Git and subsequent pushes to GitHub.
+- [Pxhere](https://pxhere.com/) for images used
+- [Codeanywhere](<https://codeanywhere.com/>) was utilized for version control, enabling commits to Git and subsequent pushes to GitHub
 - [GitHub](<https://github.com/>) project code is stored in a repository after being pushed from Git. Moreover, GitHub served as a platform for the agile development process in this project, specifically through the implementation of User Stories via GitHub Issues
 - [Heroku](<https://id.heroku.com/login>) project was deployed using this platform
 - [Django](<https://www.djangoproject.com/>) platform served as the framework that facilitated the swift and secure development of the application
@@ -54,12 +55,6 @@
 ## Deployment
 
 Outlined below are the comprehensive instructions for cloning this project repository, along with the guidelines to configure and deploy the application. A condensed version of the deployment process is made available by the Code Institute: CI Cheat Sheet and within the walkthrough project.
-
-1. [Cloning the Repository](#Cloning the Repository)
-2. [Creating an Application and Postgres Database on Heroku](#Creating an Application and Postgres Database on Heroku)
-3. [Configuring Cloudinary for hosting the application's images](#Configuring Cloudinary for hosting the application's images)
-4. [Linking the Heroku application to the GitHub repository](#Linking the Heroku application to the GitHub repository)
-5. [Executing the final deployment steps](#Executing the final deployment steps)
 
 ### Cloning the Repository
 
@@ -114,6 +109,10 @@ Note: Any changes pushed to the main branch will reflect on the live project aft
 - In the **Heroku Config Vars** for the application, delete the ```DISABLE_COLLECTSTATIC``` environment variable
 - Visit the **Heroku dashboard** and navigate to the **Deploy** tab for your application. Click **Deploy Branch** to initiate the deployment
 
-After completing these steps, the application will be live. You can access the deployed application at this link: [Puzzled Escape Room](https://github.com/Ellusive89/puzzled-escape-room)
+After completing these steps, the application will be live. You can access the deployed application at this link: [Puzzled Escape Room](https://puzzled-escaperoom-0a01ce260114.herokuapp.com/escaperoom.html)
 
 ## Credits
+
+- The majority of the coding and testing processes are based on the information provided in the "Hello Django" and "I Think Therefore I Blog" walkthroughs, which are part of the Full Stack Frameworks module at Code Institute
+- When faced with uncertainties during the development process, I relied on resources such as Stack Overflow, Bootstrap's documentation, and Django's official documentation for guidance and solutions. I also utilized guides and tutorials available on YouTube for additional assistance and insights
+- Foremost, I would like to express my deepest gratitude to my husband for his unwavering support. During times when I felt like giving up, he provided the encouragement I needed to keep going. Without his support, completing this assignment would not have been possible.
