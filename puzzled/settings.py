@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["8000-ellusive89-puzzled-escap-ml53o3bujs.us2.codeanyapp.com"]
+ALLOWED_HOSTS = ["8000-ellusive89-puzzled-escap-ml53o3bujs.us2.codeanyapp.com", "puzzled-escaperoom-0a01ce260114.herokuapp.com"]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://8000-ellusive89-puzzled-escap-ml53o3bujs.us2.codeanyapp.com"]
