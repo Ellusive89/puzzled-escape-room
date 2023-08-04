@@ -5,7 +5,6 @@
   - [User Stories](#user-stories)
   - [Features](#features)
   - [Features To Be Implemented](#features-to-be-implemented)
-  - [Technologies](#technologies)
     - [Languages](#languages)
     - [Frameworks \& Liabraries](#frameworks--liabraries)
   - [Testing](#testing)
@@ -19,13 +18,24 @@
 
 ## Introduction
 
+This project is meticulously designed and developed to offer an exceptional user experience for those looking to book an escape room adventure. It provides users with a wide array of room choices and the capability to create, update, and delete their bookings seamlessly. This undertaking serves as my fourth project for the Full Stack Development Diploma program at the Code Institute.
+
 ## User Stories
+
+1. **Browse and Choose Escape Room Scenarios** As a potential player I can easily browse and view a list of available escape room scenarios, including their themes and difficulty levels so that I can choose the one that suits my preferences and skill level
+2. **Intuitive Booking Process** As a player I can access clear and intuitive booking process, allowing me to select a specific date and time slot for the escape room of my choice so that I can complete the reservation with ease
+3. **Book Multiple Slots for the same Time Slot/Scenario** As a team organizer I can have option to book multiple slots for the same escape room scenario or the same time slot, specifying the number of participants for each slot so that I can facilitate a smooth group experience
+4. **Receive Booking Reminders** As a user I can receive email or SMS notifications to remind me of my upcoming escape room booking so that I can ensure I don't miss the scheduled time
+5. **Provide Location and Logistics Information** As a user I can see clear information about the escape room's location, parking availability, and any other relevant logistics so that I can plan my visit accordingly and avoid any last-minute hassles
+6. **Read Reviews and Ratings** As a potential customer I can read reviews and ratings from previous players who have experienced each escape room scenario so that I can make informed decisions and ensuring quality experiences
+7. **Manage Availability of Escape Rooms** As a admin I can easily manage the availability of each escape room scenario, including the ability to open or close time slots for bookings so that I can handle logistics
+8. **Manual Booking Management** As a admin I can option to manually add or modify bookings on behalf of customers so that I can provide flexibility in case of special requests or technical issues
+9. **Set Up Promotional Campaigns** As a admin I can set up and manage promotional campaigns or discount codes for specific time periods or target groups so that I can attract more customers and fill up available slots
+10. **User Panel** As a User I can Sign in/Log in to the page so that I can manage my bookings
 
 ## Features
 
 ## Features To Be Implemented
-
-## Technologies
 
 ### Languages
 
@@ -51,6 +61,27 @@
 - [Django allauth](<https://django-allauth.readthedocs.io/en/latest/index.html>) platform was utilized for account registration and user authentication
 
 ## Testing
+
+- **escaperoom_page_view**
+  - Test Passed: The escaperoom page loads correctly with no errors, and the 'puzzled' tab is marked active
+- **contact**
+  - Test Passed: The contact page loads correctly with no errors, and the 'contact' tab is marked active
+- **booking**
+  - Test Passed: The booking page loads correctly with no errors. A 'POST' request with valid room and day correctly sets the session variables. The 'booking' tab is marked active. Validation is working as expected
+- **bookingSubmit**
+  - Test Passed: The booking submit page loads correctly. A 'POST' request with valid inputs correctly creates a booking, displays the success message, and redirects to the escaperoom page
+  - Test Passed: Date not within the minimum and maximum date range returns error
+- **our_rooms**
+  - Test Passed: The our_rooms page loads correctly with no errors, and all rooms are correctly displayed. The 'our_rooms' tab is marked active
+- **user_panel**
+  - Test Passed: The user panel page loads correctly with no errors, and all reservations for the current user are correctly displayed and sorted
+- **user_update**
+  - Test Passed: The user update page loads correctly with no errors. The selected reservation is correctly loaded, and a 'POST' request with valid room and day correctly sets the session variables and redirects to the user_updateSubmit page
+- **user_updateSubmit**
+  - Test Passed: The user update submit page loads correctly with no errors. A 'POST' request with valid inputs correctly updates the reservation, displays the success message, and redirects to the user_panel page
+- **user_delete**
+  - Test Passed: The delete reservation page loads correctly with no errors. A 'POST' request with 'confirm' in the body correctly deletes the reservation, displays the success message, and redirects to the user_panel page
+  - Test Passed: Deletion request within 48 hours of the booking return error message
 
 ## Deployment
 
