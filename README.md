@@ -184,19 +184,23 @@ All **User Stories** that were not implemented in this development phase are sla
 - **footer**
   - Test Passed: Clicking on the icons in the footer successfully redirects to the corresponding social media sites as intended
 
-- **W3C Validator**
+- **W3C Validator** [link to page](https://validator.w3.org/)
 ![validator](static/media/html_validator.jpg)
 - **Lighthouse**
-![lighthouse](static/media/lighthouse.jpg)
-![lighthouse2](static/media/lighthouse2.jpg)
-![lighthouse3](static/media/lighthouse3.jpg)
-![lighthouse4](static/media/lighthouse4.jpg)
-![lighthouse5](static/media/lighthouse5.jpg)
+![lighthouse](static/media/lighthous_escaperoom.jpg)
+![lighthouse2](static/media/lighthouse_our_rooms.jpg)
+![lighthouse3](static/media/lighthouse_contactus.jpg)
+![lighthouse4](static/media/lighthouse_booking.jpg)
+![lighthouse5](static/media/lighthouse_user_pane.jpg)
+![lighthouse6](static/media/lighthouse_signup.jpg)
+![lighthouse7](static/media/lighthouse_sign_in.jpg)
+![lighthouse8](static/media/lighthouse_signout.jpg)
+- **Python Validator** [link to page](https://extendsclass.com/python-tester.html)
+![validator](static/media/python_validator.jpg)
 
 ## Bugs
 
-1. The W3C Validator has flagged an error: 'A charset attribute on a meta element found after the first 1024 bytes.' Despite rigorous research and following recommended fixes, I'm still unable to resolve the issue
-2. Upon clicking the 'Read More' button, all the room containers in a row expand downwards, an issue I've attempted to fix using Bootstrap and CSS, but to no avail
+1. Upon clicking the 'Read More' button, all the room containers in a row expand downwards, an issue I've attempted to fix using Bootstrap and CSS, but to no avail
 
 ## Deployment
 
