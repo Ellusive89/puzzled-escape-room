@@ -9,8 +9,8 @@
     - [Navigation bar for unauthenticated users](#navigation-bar-for-unauthenticated-users)
     - [Navigation bar for authenticated users](#navigation-bar-for-authenticated-users)
     - [Footer with social links](#footer-with-social-links)
-    - [Home page featuring exciting promotions for our immersive escape rooms](#home-page-featuring-exciting-promotions-for-our-immersive-escape-rooms)
-    - [Page dedicated to highlighting the variety of our escape room experiences](#page-dedicated-to-highlighting-the-variety-of-our-escape-room-experiences)
+    - [Homepage showcasing a captivating quote to entice potential customers into experiencing our immersive escape rooms](#homepage-showcasing-a-captivating-quote-to-entice-potential-customers-into-experiencing-our-immersive-escape-rooms)
+    - [Page dedicated to highlighting the variety of our escape room experiences to choose from](#page-dedicated-to-highlighting-the-variety-of-our-escape-room-experiences-to-choose-from)
     - [Expandable, in-depth descriptions of each escape room](#expandable-in-depth-descriptions-of-each-escape-room)
     - [Contact Us page providing location, parking information, and contact details such as phone, email and other details](#contact-us-page-providing-location-parking-information-and-contact-details-such-as-phone-email-and-other-details)
     - [User Panel displaying user reservations with options to modify or cancel bookings](#user-panel-displaying-user-reservations-with-options-to-modify-or-cancel-bookings)
@@ -19,6 +19,7 @@
     - [Sign up page](#sign-up-page)
     - [Sign out page](#sign-out-page)
     - [Messages](#messages)
+    - [Admin page enables the creation of new escape room scenarios, modification of existing descriptions, adjustment of difficulty levels, and updating of images. It also allows for the addition or removal of users, as well as the management of reservations](#admin-page-enables-the-creation-of-new-escape-room-scenarios-modification-of-existing-descriptions-adjustment-of-difficulty-levels-and-updating-of-images-it-also-allows-for-the-addition-or-removal-of-users-as-well-as-the-management-of-reservations)
   - [Features To Be Implemented](#features-to-be-implemented)
     - [Languages](#languages)
     - [Frameworks \& Liabraries](#frameworks--liabraries)
@@ -65,11 +66,11 @@ This project is meticulously designed and developed to offer an exceptional user
 
 ![footer](static/media/footer.jpg)
 
-### Home page featuring exciting promotions for our immersive escape rooms
+### Homepage showcasing a captivating quote to entice potential customers into experiencing our immersive escape rooms
 
 ![escaperoom](static/media/escaperoom.jpg)
 
-### Page dedicated to highlighting the variety of our escape room experiences
+### Page dedicated to highlighting the variety of our escape room experiences to choose from
 
 ![our_rooms](static/media/our_rooms.jpg)
 
@@ -110,6 +111,13 @@ This project is meticulously designed and developed to offer an exceptional user
 ![msg2](static/media/msg2.jpg)
 ![msg3](static/media/msg3.jpg)
 ![msg4](static/media/msg4.jpg)
+
+### Admin page enables the creation of new escape room scenarios, modification of existing descriptions, adjustment of difficulty levels, and updating of images. It also allows for the addition or removal of users, as well as the management of reservations
+
+![admin](static/media/admin.jpg)
+![admin2](static/media/admin2.jpg)
+![admin3](static/media/admin3.jpg)
+![admin4](static/media/admin4.jpg)
 
 ## Features To Be Implemented
 
