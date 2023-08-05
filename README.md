@@ -23,6 +23,7 @@
     - [Languages](#languages)
     - [Frameworks \& Liabraries](#frameworks--liabraries)
   - [Testing](#testing)
+  - [Bugs](#bugs)
   - [Deployment](#deployment)
     - [Cloning the Repository](#cloning-the-repository)
     - [Creating an Application and Postgres Database on Heroku](#creating-an-application-and-postgres-database-on-heroku)
@@ -112,6 +113,8 @@ This project is meticulously designed and developed to offer an exceptional user
 
 ## Features To Be Implemented
 
+All **User Stories** that were not implemented in this development phase are slated for future implementation
+
 ### Languages
 
 - [HTML5](<https://en.wikipedia.org/wiki/HTML5>)
@@ -170,9 +173,22 @@ This project is meticulously designed and developed to offer an exceptional user
 - **navigation**
   - Test Passed: While not login user can't see Booking, User Panel or Logout tab but can see Register and Login tab
   - Test Passed: While login user can see Bookin, User Panel and Logout tab but can't see Register and Login tab
+- **footer**
+  - Test Passed: Clicking on the icons in the footer successfully redirects to the corresponding social media sites as intended
 
 - **W3C Validator**
 ![validator](static/media/html_validator.jpg)
+- **Lighthouse**
+![lighthouse](static/media/lighthouse.jpg)
+![lighthouse2](static/media/lighthouse2.jpg)
+![lighthouse3](static/media/lighthouse3.jpg)
+![lighthouse4](static/media/lighthouse4.jpg)
+![lighthouse5](static/media/lighthouse5.jpg)
+
+## Bugs
+
+1. The W3C Validator has flagged an error: 'A charset attribute on a meta element found after the first 1024 bytes.' Despite rigorous research and following recommended fixes, I'm still unable to resolve the issue
+2. Upon clicking the 'Read More' button, all the room containers in a row expand downwards, an issue I've attempted to fix using Bootstrap and CSS, but to no avail
 
 ## Deployment
 
