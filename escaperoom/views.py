@@ -126,8 +126,16 @@ def our_rooms(request):
 
 def user_panel(request):
     user = request.user
+    now = datetime.now()
     reservations = Reservation.objects.filter(
-        user=user).order_by('day', 'time')
+        user=user,
+        day__gte=now.date(),
+        time__gte=now.time()
+    ).exclude(
+        day=now.date(),
+        time__lt=now.time()
+    ).order_by('day', 'time')
+
     return render(request, 'user_panel.html', {
         'user': user,
         'reservations': reservations,
