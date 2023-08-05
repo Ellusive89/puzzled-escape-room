@@ -1,9 +1,24 @@
 # Puzzled Escape Room
 
+![AmIResponsive](static/media/AmIResponsive.jpg)
+
 - [Puzzled Escape Room](#puzzled-escape-room)
   - [Introduction](#introduction)
   - [User Stories](#user-stories)
   - [Features](#features)
+    - [Navigation bar for unauthenticated users](#navigation-bar-for-unauthenticated-users)
+    - [Navigation bar for authenticated users](#navigation-bar-for-authenticated-users)
+    - [Footer with social links](#footer-with-social-links)
+    - [Home page featuring exciting promotions for our immersive escape rooms](#home-page-featuring-exciting-promotions-for-our-immersive-escape-rooms)
+    - [Page dedicated to highlighting the variety of our escape room experiences](#page-dedicated-to-highlighting-the-variety-of-our-escape-room-experiences)
+    - [Expandable, in-depth descriptions of each escape room](#expandable-in-depth-descriptions-of-each-escape-room)
+    - [Contact Us page providing location, parking information, and contact details such as phone, email and other details](#contact-us-page-providing-location-parking-information-and-contact-details-such-as-phone-email-and-other-details)
+    - [User Panel displaying user reservations with options to modify or cancel bookings](#user-panel-displaying-user-reservations-with-options-to-modify-or-cancel-bookings)
+    - [Booking room](#booking-room)
+    - [Login page](#login-page)
+    - [Sign up page](#sign-up-page)
+    - [Sign out page](#sign-out-page)
+    - [Messages](#messages)
   - [Features To Be Implemented](#features-to-be-implemented)
     - [Languages](#languages)
     - [Frameworks \& Liabraries](#frameworks--liabraries)
@@ -22,18 +37,78 @@ This project is meticulously designed and developed to offer an exceptional user
 
 ## User Stories
 
-1. **Browse and Choose Escape Room Scenarios** As a potential player I can easily browse and view a list of available escape room scenarios, including their themes and difficulty levels so that I can choose the one that suits my preferences and skill level
-2. **Intuitive Booking Process** As a player I can access clear and intuitive booking process, allowing me to select a specific date and time slot for the escape room of my choice so that I can complete the reservation with ease
-3. **Book Multiple Slots for the same Time Slot/Scenario** As a team organizer I can have option to book multiple slots for the same escape room scenario or the same time slot, specifying the number of participants for each slot so that I can facilitate a smooth group experience
-4. **Receive Booking Reminders** As a user I can receive email or SMS notifications to remind me of my upcoming escape room booking so that I can ensure I don't miss the scheduled time
-5. **Provide Location and Logistics Information** As a user I can see clear information about the escape room's location, parking availability, and any other relevant logistics so that I can plan my visit accordingly and avoid any last-minute hassles
-6. **Read Reviews and Ratings** As a potential customer I can read reviews and ratings from previous players who have experienced each escape room scenario so that I can make informed decisions and ensuring quality experiences
-7. **Manage Availability of Escape Rooms** As a admin I can easily manage the availability of each escape room scenario, including the ability to open or close time slots for bookings so that I can handle logistics
-8. **Manual Booking Management** As a admin I can option to manually add or modify bookings on behalf of customers so that I can provide flexibility in case of special requests or technical issues
-9. **Set Up Promotional Campaigns** As a admin I can set up and manage promotional campaigns or discount codes for specific time periods or target groups so that I can attract more customers and fill up available slots
-10. **User Panel** As a User I can Sign in/Log in to the page so that I can manage my bookings
+1. **Browse and Choose Escape Room Scenarios** As a potential player I can easily browse and view a list of available escape room scenarios, including their themes and difficulty levels so that I can choose the one that suits my preferences and skill level *IMPLEMENTED*
+2. **Intuitive Booking Process** As a player I can access clear and intuitive booking process, allowing me to select a specific date and time slot for the escape room of my choice so that I can complete the reservation with ease *IMPLEMENTED*
+3. **Book Multiple Slots for the same Time Slot/Scenario** As a team organizer I can have option to book multiple slots for the same escape room scenario or the same time slot, specifying the number of participants for each slot so that I can facilitate a smooth group experience *Intended for later implementation*
+4. **Receive Booking Reminders** As a user I can receive email or SMS notifications to remind me of my upcoming escape room booking so that I can ensure I don't miss the scheduled time *Intended for later implementation*
+5. **Provide Location and Logistics Information** As a user I can see clear information about the escape room's location, parking availability, and any other relevant logistics so that I can plan my visit accordingly and avoid any last-minute hassles *IMPLEMENTED*
+6. **Read Reviews and Ratings** As a potential customer I can read reviews and ratings from previous players who have experienced each escape room scenario so that I can make informed decisions and ensuring quality experiences *Intended for later implementation*
+7. **Manage Availability of Escape Rooms** As a admin I can easily manage the availability of each escape room scenario, including the ability to open or close time slots for bookings so that I can handle logistics *Intended for later implementation*
+8. **Manual Booking Management** As a admin I can option to manually add or modify bookings on behalf of customers so that I can provide flexibility in case of special requests or technical issues *Intended for later implementation*
+9. **Set Up Promotional Campaigns** As a admin I can set up and manage promotional campaigns or discount codes for specific time periods or target groups so that I can attract more customers and fill up available slots *Intended for later implementation*
+10. **User Panel** As a User I can Sign in/Log in to the page so that I can manage my bookings *IMPLEMENTED*
+
+![User_Stories](static/media/User_Stories.jpg)
 
 ## Features
+
+### Navigation bar for unauthenticated users
+
+![nav](static/media/nav.jpg)
+
+### Navigation bar for authenticated users
+
+![nav2](static/media/nav2.jpg)
+
+### Footer with social links
+
+![footer](static/media/footer.jpg)
+
+### Home page featuring exciting promotions for our immersive escape rooms
+
+![escaperoom](static/media/escaperoom.jpg)
+
+### Page dedicated to highlighting the variety of our escape room experiences
+
+![our_rooms](static/media/our_rooms.jpg)
+
+### Expandable, in-depth descriptions of each escape room
+
+![our_rooms2](static/media/our_rooms2.jpg)
+
+### Contact Us page providing location, parking information, and contact details such as phone, email and other details
+
+![contact_us](static/media/contact_us.jpg)
+
+### User Panel displaying user reservations with options to modify or cancel bookings
+
+![user_panel](static/media/user_panel.jpg)
+![user_panel2](static/media/user_panel2.jpg)
+![delete](static/media/delete_reservation.jpg)
+
+### Booking room
+
+![booking](static/media/choices.jpg)
+![booking2](static/media/choices2.jpg)
+
+### Login page
+
+![login](static/media/signin.jpg)
+
+### Sign up page
+
+![signup](static/media/signup.jpg)
+
+### Sign out page
+
+![signout](static/media/signout.jpg)
+
+### Messages
+
+![msg](static/media/msg.jpg)
+![msg2](static/media/msg2.jpg)
+![msg3](static/media/msg3.jpg)
+![msg4](static/media/msg4.jpg)
 
 ## Features To Be Implemented
 
@@ -82,6 +157,22 @@ This project is meticulously designed and developed to offer an exceptional user
 - **user_delete**
   - Test Passed: The delete reservation page loads correctly with no errors. A 'POST' request with 'confirm' in the body correctly deletes the reservation, displays the success message, and redirects to the user_panel page
   - Test Passed: Deletion request within 48 hours of the booking return error message
+- **login**
+  - Test Passed: A user can log in with valid credentials. The user is redirected to the escaperoom page after a successful login
+  - Test Passed: A user cannot log in with invalid credentials. An appropriate error message is displayed
+  - Test Passed: Attempting to login with empty fields 'username and/or password' shows an appropriate error message
+- **logout**
+  - Test Passed: A logged-in user can successfully log out. After logout, the user is redirected to escaperoom page
+- **signup**
+  - Test Passed: A user can successfully sign up with valid details. An appropriate success message is displayed, and the user is redirected to the escaperoom page
+  - Test Passed: A user cannot sign up with invalid details 'such as mismatching passwords, a username that is already in use'. An appropriate error message is displayed
+  - Test Passed: Attempting to sign up with empty fields displays an appropriate error message
+- **navigation**
+  - Test Passed: While not login user can't see Booking, User Panel or Logout tab but can see Register and Login tab
+  - Test Passed: While login user can see Bookin, User Panel and Logout tab but can't see Register and Login tab
+
+- **W3C Validator**
+![validator](static/media/html_validator.jpg)
 
 ## Deployment
 

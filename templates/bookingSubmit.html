@@ -12,7 +12,7 @@
   >
     {% csrf_token %}
 
-    <h3 class="">Time:</h3>
+    <h3>Time:</h3>
     <div>
       <select class="form-select fs-3" name="time">
         {% for time in times %}
@@ -20,7 +20,8 @@
         {% endfor %}
       </select>
     </div>
-    <h3 class="">Number of Players:</h3>
+    <div class="mt-3"></div>
+    <h3>Number of Players:</h3>
     <div>
       <select class="form-select fs-3" name="players">
         {% for player_choice in player_number_choices %}
