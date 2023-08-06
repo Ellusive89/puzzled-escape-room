@@ -6,29 +6,36 @@ from .models import Room_Description
 
 
 def escaperoom_page_view(request):
+    # Render the escaperoom page with 'puzzled' as the active tab.
     return render(request, 'escaperoom.html', {'active_tab': 'puzzled'})
 
 
 def contact(request):
+    # Render the contact page with 'contact' as the active tab.
     return render(request, 'contact.html', {'active_tab': 'contact'})
 
 
 def booking(request):
+    # Generate and validate weekdays
     weekdays = validWeekday(31)
     validateWeekdays = isWeekdayValid(weekdays)
 
     if request.method == 'POST':
         room = request.POST.get('room')
         day = request.POST.get('day')
+
+        # Ensure a room is selected before proceeding
         if room == None:
             messages.success(request, "Please Select A Room!")
             return redirect('booking')
 
+        # Store room and day in the session for later retrieval
         request.session['day'] = day
         request.session['room'] = room
 
         return redirect('bookingSubmit')
 
+    # Render the booking page with weekdays data and active tab
     return render(request, 'booking.html', {
         'weekdays': weekdays,
         'validateWeekdays': validateWeekdays,
@@ -37,6 +44,7 @@ def booking(request):
 
 
 def bookingSubmit(request):
+    # Get the current user and set up time slots and date ranges
     user = request.user
     times = ["9 AM", "10:30 AM", "12:00 PM", "1:30 PM",
              "3:00 PM", "4:30 PM", "6:00 PM", "7:30 PM", "9:00 PM"]
@@ -55,6 +63,7 @@ def bookingSubmit(request):
         players = int(request.POST.get("players"))
         date = dayToWeekday(day)
 
+        # Validate the room, date, and availability before creating a reservation
         if room != None:
             if day <= maxDate and day >= minDate:
                 if Reservation.objects.filter(day=day, room=room).count() < 8:
@@ -86,12 +95,14 @@ def bookingSubmit(request):
 
 
 def dayToWeekday(x):
+    # Convert a date string to its corresponding weekday name.
     z = datetime.strptime(x, "%Y-%m-%d")
     y = z.strftime('%A')
     return y
 
 
 def validWeekday(days):
+    # Return a list of valid weekdays (excluding Monday) up to the specified number of days from today.
     today = datetime.now()
     weekdays = []
     for i in range(0, days):
@@ -103,14 +114,16 @@ def validWeekday(days):
 
 
 def isWeekdayValid(x):
+    # Filter out weekdays that have more than 70 reservations.
     validateWeekdays = []
     for j in x:
-        if Reservation.objects.filter(day=j).count() < 10:
+        if Reservation.objects.filter(day=j).count() < 70:
             validateWeekdays.append(j)
     return validateWeekdays
 
 
 def checkTime(times, day):
+    # Return available times for a given day based on existing reservations.
     x = []
     for k in times:
         if Reservation.objects.filter(day=day, time=k).count() < 1:
@@ -119,12 +132,14 @@ def checkTime(times, day):
 
 
 def our_rooms(request):
+    # Render the 'our_rooms' page with a list of all room descriptions.
     rooms = Room_Description.objects.all()
     context = {'rooms': rooms, 'active_tab': 'our_rooms'}
     return render(request, 'our_rooms.html', context)
 
 
 def user_panel(request):
+    # Render the 'our_rooms' page with a list of all room descriptions.
     user = request.user
     now = datetime.now()
     reservations = Reservation.objects.filter(
@@ -143,6 +158,7 @@ def user_panel(request):
 
 
 def user_update(request, id):
+    # Update the reservation details of a user, ensuring changes are made at least 24 hours in advance.
     reservation = Reservation.objects.get(pk=id)
     userdatepicked = reservation.day
 
@@ -174,6 +190,7 @@ def user_update(request, id):
 
 
 def user_updateSubmit(request, id):
+    # Process user's request to edit their reservation, validating time slots and dates before updating the booking.
     user = request.user
     times = ["9 AM", "10:30 AM", "12:00 PM", "1:30 PM", "3:00 PM",
              "4:30 PM", "6:00 PM", "7:30 PM", "9:00 PM"]
@@ -230,6 +247,7 @@ def user_updateSubmit(request, id):
 
 
 def checkEditTime(times, day, id):
+    # Return available time slots for editing a reservation, including the user's current reservation time.
     x = []
     reservation = Reservation.objects.get(pk=id)
     time = reservation.time
@@ -241,6 +259,7 @@ def checkEditTime(times, day, id):
 
 
 def user_delete(request, id):
+    # Allow the user to delete their reservation if it's more than 48 hours before the booked time.
     reservation = get_object_or_404(Reservation, pk=id)
     user_date_picked = reservation.day
     today = datetime.today().date()
