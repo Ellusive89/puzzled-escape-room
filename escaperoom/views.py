@@ -114,10 +114,10 @@ def validWeekday(days):
 
 
 def isWeekdayValid(x):
-    # Filter out weekdays that have more than 70 reservations.
+    # Filter out weekdays that have more than 8 reservations.
     validateWeekdays = []
     for j in x:
-        if Reservation.objects.filter(day=j).count() < 70:
+        if Reservation.objects.filter(day=j).count() < 8:
             validateWeekdays.append(j)
     return validateWeekdays
 
